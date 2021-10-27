@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
- * @LastEditTime: 2021-10-28 00:15:22
- * @LastEditors: your name
+ * @LastEditTime: 2021-10-28 00:19:39
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\App.vue
 -->
@@ -16,7 +16,7 @@ import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+
   }
 }
 </script>
