@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
- * @LastEditTime: 2021-10-29 00:18:45
+ * @LastEditTime: 2021-10-29 23:02:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\App.vue
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import storage from './storage/index.js'
+// import storage from './storage/index.js'
 export default {
   name: 'App',
   components: {
@@ -21,17 +21,21 @@ export default {
   },
   data (){
     return {
-
+      res:{}
     }
   },
   mounted () {
     // storage.setItem('a',1);
     // storage.setItem('user',{a:1});
     //  storage.setItem('abc',{a:1},'user');
-    //  storage.clear('a');
-     storage.clear('a','user');
+    //  storage.clear('a','user');
 
+  // 1.本地加载请求静态json文件的形势
+  this.axios.get('/user/login').then((res)=>{
+    this.res=res;
+  });
 
+  
   }
 }
 </script>

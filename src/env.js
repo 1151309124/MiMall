@@ -1,14 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2021-10-29 19:15:14
- * @LastEditTime: 2021-10-29 22:07:41
+ * @LastEditTime: 2021-10-29 22:51:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\env.js
  */
 let baseURL;
 switch (process.env.NODE_ENV) {
-    case 'dev':
+    case 'development':
         baseURL= 'http://dev-mall-pre.springboot.cn/api';
         break;
     case 'test':
