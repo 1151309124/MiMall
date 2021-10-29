@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve --model=development",
     "test": "vue-cli-service serve --model=test",
-    "prev":"vue-cli-service serve --mode=prev",
+    "prev": "vue-cli-service serve --mode=prev",
     "build": "vue-cli-service build --model=production",
     "lint": "vue-cli-service lint"
   },
@@ -23,6 +23,7 @@
     "element-ui": "^2.15.6",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "mockjs": "^1.1.0",
     "node-sass": "^6.0.1",
     "sass-loader": "^12.2.0",
     "vue-awesome-swiper": "^4.1.1",

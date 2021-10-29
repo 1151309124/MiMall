@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
- * @LastEditTime: 2021-10-29 23:02:39
+ * @LastEditTime: 2021-10-29 23:23:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\App.vue
@@ -31,11 +31,19 @@ export default {
     //  storage.clear('a','user');
 
   // 1.本地加载请求静态json文件的形势
+  // this.axios.get('/mock/user/login').then((res)=>{
+  //   this.res=res;
+  // });
+
+  // 2.通过easy-mock平台实现数据mock
+  // this.axios.get('/user/login').then((res)=>{
+  //   this.res=res;
+  // });
+
+  // 3.本地集成mockjs实现数据mock
   this.axios.get('/user/login').then((res)=>{
     this.res=res;
   });
-
-  
   }
 }
 </script>

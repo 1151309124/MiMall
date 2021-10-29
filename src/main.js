@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
- * @LastEditTime: 2021-10-29 22:51:49
+ * @LastEditTime: 2021-10-29 23:24:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\main.js
@@ -13,8 +13,15 @@ import VueAxios from 'vue-axios'
 import App from './App.vue'
 // import env from './env'
 
+// 第三种方式
+// mock开关
+const mock =true;
+if(mock) {
+  require('./mock/api');
+}
+
 // 根据前端的跨越方式做调整 /a/b : /api/a/b => /a/b
-// axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = '/api';//east-mock的情况下api换成easy-mock网页中的地址
 axios.defaults.timeout=8000;
 // 根据环境变量获取不同的请求地址
 // axios.defaults.baseURL=env.baseURL;
