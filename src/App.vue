@@ -1,21 +1,36 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
- * @LastEditTime: 2021-10-28 00:19:39
+ * @LastEditTime: 2021-10-29 00:18:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\App.vue
 -->
 <template>
- 
+  <div id="app">
+  <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import storage from './storage/index.js'
 export default {
   name: 'App',
   components: {
+
+  },
+  data (){
+    return {
+
+    }
+  },
+  mounted () {
+    // storage.setItem('a',1);
+    // storage.setItem('user',{a:1});
+    //  storage.setItem('abc',{a:1},'user');
+    //  storage.clear('a');
+     storage.clear('a','user');
+
 
   }
 }
