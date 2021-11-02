@@ -1,13 +1,13 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-28 14:52:51
- * @LastEditTime: 2021-10-28 20:36:22
+ * @LastEditTime: 2021-11-02 14:21:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\components\NavFooter.vue
 -->
 <template>
-    <div>footer</div>
+    <div></div>
 </template>
 
 <script>
