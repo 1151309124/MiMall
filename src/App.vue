@@ -1,7 +1,11 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
+<<<<<<< HEAD
  * @LastEditTime: 2021-11-02 14:53:30
+=======
+ * @LastEditTime: 2021-11-02 22:28:19
+>>>>>>> Nav-Header-1
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\App.vue
@@ -52,5 +56,9 @@ export default {
 </script>
 
 <style>
+<<<<<<< HEAD
 @import './assets/scss/reset.scss'
+=======
+@import './assets/scss/reset.scss' 
+>>>>>>> Nav-Header-1
 </style>
