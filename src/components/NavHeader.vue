@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-28 14:44:11
- * @LastEditTime: 2021-11-04 14:00:46
+ * @LastEditTime: 2021-11-04 14:26:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\components\NavHeader.vue
@@ -148,7 +148,7 @@ export default {
       this.axios.get('/products', {
           params: {
             categoryId: "100012",
-            // pageSize:6
+            pageSize:6
           }
         }).then((res) => {
           if (res.list.length>=6) {
