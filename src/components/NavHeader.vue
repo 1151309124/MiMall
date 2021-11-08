@@ -2,7 +2,11 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-28 14:44:11
+<<<<<<< HEAD
  * @LastEditTime: 2021-11-05 21:01:11
+=======
+ * @LastEditTime: 2021-11-05 22:05:38
+>>>>>>> Nav-Header-1
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\components\NavHeader.vue
@@ -156,13 +160,11 @@ export default {
         .get("/products", {
           params: {
             categoryId: "100012",
-            // pageSize:6
+            pageSize:6
           },
         })
         .then((res) => {
-          if (res.list.length >= 6) {
-            this.phoneList = res.list.slice(0, 6);
-          }
+            this.phoneList = res.list;
         });
     },
     goToCart() {
@@ -225,6 +227,7 @@ sass-loader和node-sass要对应安装，反正现在是有了，上面是各个
             content: "";
             @include bgImg(55px, 55px, "/imgs/mi-logo.png", 55px);
             transition: margin 0.2s;
+ 
           }
           &:after {
             content: "";
@@ -237,6 +240,7 @@ sass-loader和node-sass要对应安装，反正现在是有了，上面是各个
           &:hover:before {
             margin-left: -55px;
             transition: margin 0.2s;
+
           }
         }
       }
@@ -272,6 +276,7 @@ sass-loader和node-sass要对应安装，反正现在是有了，上面是各个
             border-top: 1px solid #e5e5e5;
             box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
             z-index: 10;
+            transition: all .5s;
             background-color: #ffffff;
             &:before {
               content: "";
