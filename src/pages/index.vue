@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-28 14:42:25
- * @LastEditTime: 2021-11-07 22:42:59
+ * @LastEditTime: 2021-11-09 15:37:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\pages\index.vue
@@ -70,55 +70,71 @@
           v-for="(item, index) in adsList"
           v-bind:key="index"
         >
-          <img v-bind:src="item.img" alt="" />
+          <img v-lazy="item.img" alt="" />
         </a>
       </div>
       <div class="banner">
         <a href="/#/product/30">
-          <img src="/imgs/banner-1.png" alt="" />
+          <img v-lazy="'/imgs/banner-1.png'" alt="" />
         </a>
       </div>
     </div>
     <div class="product-box">
-        <div class="container">
-          <h2>手机</h2>
-          <div class="wrapper">
-            <div class="banner-left">
-              <a href="/#/product/35">
-              <img src="/imgs/mix-alpha.jpg" alt=""/>
-              </a>
-            </div>
-            <div class="list-box">
-               <div class="list" v-for="(arr, i) in phoneList" v-bind:key="i">
-                <div class="item" v-for="(item, j) in arr" v-bind:key="j">
-                  <span>新品</span>
-                  <div class="item-img">
-                    <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2c9307e9690dfbca39d8de770a7a8664.png" alt="" />
-                  </div>
-                  <div class="item-info">
-                    <h3>小米9</h3>
-                    <p>骁龙855，索尼4800万超广角</p>
-                    <p class="price">2999元</p>
-                  </div>
+      <div class="container">
+        <h2>手机</h2>
+        <div class="wrapper">
+          <div class="banner-left">
+            <a href="/#/product/35">
+              <img v-lazy="'/imgs/mix-alpha.jpg'" alt="" />
+            </a>
+          </div>
+          <div class="list-box">
+            <div class="list" v-for="(arr, i) in phoneList" v-bind:key="i">
+              <div class="item" v-for="(item, j) in arr" v-bind:key="j">
+                <span v-bind:class="{'new-pro':j%2==0}">新品</span>
+                <div class="item-img">
+                  <img v-lazy="'item.mainImage'" alt=""/>
+                </div>
+                <div class="item-info">
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.subtitle}}</p>
+                  <p class="price" @click="addCart(item.id)">{{item.price}}元</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     <service-bar></service-bar>
+    <modal 
+    title="提示" 
+    sureText="查看购物车" 
+    btnType="1" 
+    modalType="middle" 
+    v-bind:showModal="showModal"
+    v-on:submit="goToCart"
+    v-on:cancel="showModal=false"
+    >
+    <template v-slot:body>
+      <p>商品添加成功！</p>
+    </template>>
+    </modal>
   </div>
 </template>
 <script>
 import ServiceBar from "./../components/ServiceBar.vue";
+import Modal from './../components/Modal.vue';
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
+
 export default {
   name: "index",
   components: {
     Swiper,
     SwiperSlide,
     ServiceBar,
+    Modal
   },
   data() {
     return {
@@ -210,13 +226,41 @@ export default {
           img: "/imgs/ads/ads-4.png",
         },
       ],
-      phoneList: [
-        [1, 1, 1, 1],
-        [1, 1, 1, 1],
-      ],
-    };
+      phoneList: [],
+      showModal:false
+    }
   },
-};
+  mounted(){
+    this.init();
+  },
+  methods:{
+    init(){
+      this.axios.get('/products',{
+        params:{
+          categoryId:100012,
+          pageSize:14
+        }
+      }).then((res)=>{
+        res.list=res.list.slice(6,14)
+        this.phoneList = [res.list.slice(0,4),res.list.slice(4,8)]
+      })
+    },
+    addCart(){
+      this.showModal=true; 
+    /*  this.axios.post('/carts',{
+        productId:id,
+        selected:true
+      }).then(()=>{
+
+      }).catch(()=>{
+        this.showModal=true;
+      })*/
+    },
+    goToCart(){
+      this.$router.push('/cart');
+    }
+  }
+}
 </script>
 <style lang="scss">
 @import "./../assets/scss/config.scss";
@@ -345,9 +389,22 @@ export default {
             background-color: $colorG;
             text-align: center;
             span {
+              display: inline-block;
+              width: 67px;
+              height: 24px;
+              font-size:14px;
+              line-height: 24px;
+              color: $colorG;
+              &.new-pro {
+                background-color: #7ecf68;
+              }
+              &.kill-pro{
+                 background-color: #E82626;
+              }
             }
             .item-img {
               img {
+                width: 100%;
                 height: 195px;
               }
             }
