@@ -1,7 +1,11 @@
 /*
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
+<<<<<<< HEAD
  * @LastEditTime: 2021-11-04 14:45:21
+=======
+ * @LastEditTime: 2021-11-09 15:33:15
+>>>>>>> Nav-Header-1
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\main.js
@@ -10,6 +14,7 @@ import Vue from 'vue'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueLazyload from 'vue-lazyload'
 import App from './App.vue'
 // import env from './env'
 
@@ -38,6 +43,9 @@ axios.interceptors.response.use(function(response){
 });
 
 Vue.use(VueAxios,axios)
+Vue.use(VueLazyload,{
+  loading:'/imgs/loading-svg/loading-bars.svg'
+})
 Vue.config.productionTip = false
 
 new Vue({

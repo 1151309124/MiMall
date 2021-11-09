@@ -3,9 +3,13 @@
  * @Author: your name
  * @Date: 2021-10-28 14:44:11
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @LastEditTime: 2021-11-05 21:01:11
 =======
  * @LastEditTime: 2021-11-05 22:05:38
+>>>>>>> Nav-Header-1
+=======
+ * @LastEditTime: 2021-11-09 15:40:00
 >>>>>>> Nav-Header-1
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
@@ -48,7 +52,7 @@
                 >
                   <a v-bind:href="'/#/' + item.id" target="_blank">
                     <div class="pro-img">
-                      <img :src="item.mainImage" :alt="item.subtitle" />
+                      <img v-lazy="item.mainImage" :alt="item.subtitle" />
                     </div>
                     <div class="pro-name">{{ item.name }}</div>
                     <div class="pro-price">{{ item.price | currency }}</div>
@@ -68,7 +72,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-1.jpg" alt="" />
+                      <img v-lazy="'/imgs/nav-img/nav-3-1.jpg'" alt="" />
                     </div>
                     <div class="pro-name">小米壁画电视 65英寸</div>
                     <div class="pro-price">6999元</div>
@@ -77,7 +81,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-2.jpg" alt="" />
+                      <img v-lazy="'/imgs/nav-img/nav-3-2.jpg'" alt="" />
                     </div>
                     <div class="pro-name">小米全面屏电视E55A</div>
                     <div class="pro-price">1999</div>
@@ -86,7 +90,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-3.png" alt="" />
+                      <img v-lazy="'/imgs/nav-img/nav-3-3.png'" alt="" />
                     </div>
                     <div class="pro-name">小米电视4A 32英寸</div>
                     <div class="pro-price">699</div>
@@ -95,7 +99,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-4.jpg" alt="" />
+                      <img v-lazy="'/imgs/nav-img/nav-3-4.jpg'" alt="" />
                     </div>
                     <div class="pro-name">小米电视4A 55英寸</div>
                     <div class="pro-price">1799</div>
@@ -104,7 +108,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-5.jpg" alt="" />
+                      <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt="" />
                     </div>
                     <div class="pro-name">小米电视4A 65英寸</div>
                     <div class="pro-price">2699</div>
@@ -113,7 +117,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-6.png" alt="" />
+                      <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt="" />
                     </div>
                     <div class="pro-name">查看全部</div>
                     <div class="pro-price">查看全部</div>
