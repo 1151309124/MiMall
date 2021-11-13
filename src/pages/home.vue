@@ -1,11 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-28 14:42:39
-<<<<<<< HEAD
- * @LastEditTime: 2021-11-04 18:19:01
-=======
- * @LastEditTime: 2021-11-04 18:16:43
->>>>>>> Nav-Header-1
+ * @LastEditTime: 2021-11-10 21:26:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\pages\home.vue

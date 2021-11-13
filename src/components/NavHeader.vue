@@ -4,7 +4,7 @@
  * @Date: 2021-10-28 14:44:11
 <<<<<<< HEAD
 <<<<<<< HEAD
- * @LastEditTime: 2021-11-05 21:01:11
+ * @LastEditTime: 2021-11-10 21:30:16
 =======
  * @LastEditTime: 2021-11-05 22:05:38
 >>>>>>> Nav-Header-1
@@ -30,7 +30,7 @@
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart"
-            ><span class="icon-cart"></span>购物车</a
+            ><span class="icon-cart"></span>购物车{{cartCount}}</a
           >
         </div>
       </div>
@@ -138,13 +138,22 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: "nav-header",
   data() {
     return {
-      username: "",
       phoneList: [],
     };
+  },
+  computed:{
+    /* username(){
+      return this.$store.state.username;
+    },
+    cartCount(){
+       return this.$store.state.cartCount;
+    } */
+    ...mapActions([' username', 'cartCount'])
   },
   filters: {
     currency(val) {
@@ -207,6 +216,7 @@ sass-loader和node-sass要对应安装，反正现在是有了，上面是各个
         background-color: #ff6600;
         text-align: center;
         color: #ffffff;
+        margin-right: 0;
         .icon-cart {
           @include bgImg(16px, 12px, "/imgs/icon-cart-checked.png");
         }

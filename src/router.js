@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-28 14:46:51
- * @LastEditTime: 2021-10-28 21:19:03
+ * @LastEditTime: 2021-11-09 20:33:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\router.js
@@ -9,6 +9,7 @@
 import Vue from "vue"
 import Router from 'vue-router'
 import Home from './pages/home'
+import Login from './pages/login'
 import Index from './pages/index'
 import Product from './pages/product'
 import Detail from './pages/detail'
@@ -43,6 +44,11 @@ export default new Router({
                     component:Detail
                 }
             ]
+        },
+        {
+            path:'/login',
+            name:'login',
+            component:Login
         },
         {
             path:'/cart',

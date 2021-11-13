@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-28 14:42:25
- * @LastEditTime: 2021-11-09 15:37:35
+ * @LastEditTime: 2021-11-10 11:58:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\pages\index.vue
@@ -93,7 +93,7 @@
               <div class="item" v-for="(item, j) in arr" v-bind:key="j">
                 <span v-bind:class="{'new-pro':j%2==0}">新品</span>
                 <div class="item-img">
-                  <img v-lazy="'item.mainImage'" alt=""/>
+                  <img v-lazy="item.mainImage" alt=""/>
                 </div>
                 <div class="item-info">
                   <h3>{{item.name}}</h3>

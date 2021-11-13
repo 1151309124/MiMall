@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
- * @LastEditTime: 2021-11-09 14:33:44
+ * @LastEditTime: 2021-11-10 21:20:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\App.vue
@@ -46,7 +46,20 @@ export default {
   // });
 
 
-
+  this.getUser();
+  this.getCartCount();
+  },
+  methods:{
+    getUser(){
+      this.axios.get('/user').then((res)=>{
+        this.$store.dispatch('saveUserName',res.username);
+      })
+    },
+    getCartCount(){
+      this.axios.get('/carts/products/sum').then((res)=>{
+          this.$store.dispatch('saveCartCount',res);
+      })
+    }
   }
 }
 </script>

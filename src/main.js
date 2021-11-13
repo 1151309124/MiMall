@@ -1,11 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-10-27 23:05:45
-<<<<<<< HEAD
- * @LastEditTime: 2021-11-04 14:45:21
-=======
- * @LastEditTime: 2021-11-09 15:33:15
->>>>>>> Nav-Header-1
+ * @LastEditTime: 2021-11-10 20:57:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\main.js
@@ -15,6 +11,8 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyload from 'vue-lazyload'
+import VueCookie from 'vue-cookie'
+import store from './store'
 import App from './App.vue'
 // import env from './env'
 
@@ -30,7 +28,7 @@ axios.defaults.baseURL = '/api';//east-mock的情况下api换成easy-mock网页�
 axios.defaults.timeout=8000;
 // 根据环境变量获取不同的请求地址
 // axios.defaults.baseURL=env.baseURL;
-// 借口错误拦截
+// 接  口错误拦截
 axios.interceptors.response.use(function(response){
   let res = response.data;
   if (res.status == 0) {
@@ -39,16 +37,19 @@ axios.interceptors.response.use(function(response){
     window.location.href='/#/login';
   }else{
     alert(res.msg);
+    return Promise.reject(res);
   }
 });
 
 Vue.use(VueAxios,axios)
+Vue.use(VueCookie);
 Vue.use(VueLazyload,{
   loading:'/imgs/loading-svg/loading-bars.svg'
 })
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   router,
   render: h => h(App),
 }).$mount('#app')
