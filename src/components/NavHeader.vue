@@ -4,7 +4,7 @@
  * @Date: 2021-10-28 14:44:11
 <<<<<<< HEAD
 <<<<<<< HEAD
- * @LastEditTime: 2021-11-10 21:30:16
+ * @LastEditTime: 2021-11-18 22:53:39
 =======
  * @LastEditTime: 2021-11-05 22:05:38
 >>>>>>> Nav-Header-1
@@ -138,7 +138,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapState} from 'vuex';
 export default {
   name: "nav-header",
   data() {
@@ -147,13 +147,13 @@ export default {
     };
   },
   computed:{
-    /* username(){
+  /*   username(){
       return this.$store.state.username;
     },
     cartCount(){
        return this.$store.state.cartCount;
     } */
-    ...mapActions([' username', 'cartCount'])
+    ...mapState(['username', 'cartCount'])
   },
   filters: {
     currency(val) {
@@ -228,36 +228,7 @@ sass-loader和node-sass要对应安装，反正现在是有了，上面是各个
       position: relative;
       height: 112px;
       @include flex();
-      .header-logo {
-        display: inline-block;
-        width: 55px;
-        height: 55px;
-        background-color: #ff6600;
-        a {
-          display: inline-block;
-          width: 110px;
-          height: 55px;
-          &:before {
-            content: "";
-            @include bgImg(55px, 55px, "/imgs/mi-logo.png", 55px);
-            transition: margin 0.2s;
- 
-          }
-          &:after {
-            content: "";
-            display: inline-block;
-            width: 55px;
-            height: 55px;
-            background: url("/imgs/mi-home.png") no-repeat center;
-            background-size: 55px;
-          }
-          &:hover:before {
-            margin-left: -55px;
-            transition: margin 0.2s;
-
-          }
-        }
-      }
+     
       .header-menu {
         display: inline-block;
         width: 643px;

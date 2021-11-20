@@ -1,4 +1,4 @@
-
+@import './mixin.scss';
 .container{
   position: relative;
   width:1226px;
@@ -15,4 +15,48 @@ input{
   outline: none;
   box-sizing: border-box;
   font-size: 14px;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix:before,.clearfix:after{
+  content: '';
+  display: table;
+}
+.clearfix:after{
+  clear: both;
+}
+// 公共logo
+.header-logo {
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  background-color: #ff6600;
+  a {
+    display: inline-block;
+    width: 110px;
+    height: 55px;
+    &:before {
+      content: "";
+      @include bgImg(55px, 55px, "/imgs/mi-logo.png", 55px);
+      transition: margin 0.2s;
+
+    }
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 55px;
+      height: 55px;
+      background: url("/imgs/mi-home.png") no-repeat center;
+      background-size: 55px;
+    }
+    &:hover:before {
+      margin-left: -55px;
+      transition: margin 0.2s;
+
+    }
+  }
 }

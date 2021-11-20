@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-10-28 14:42:25
- * @LastEditTime: 2021-11-10 11:58:50
+ * @LastEditTime: 2021-11-18 22:41:33
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \htmle:\vue项目\mimall\src\pages\index.vue
@@ -245,16 +245,17 @@ export default {
         this.phoneList = [res.list.slice(0,4),res.list.slice(4,8)]
       })
     },
-    addCart(){
-      this.showModal=true; 
-    /*  this.axios.post('/carts',{
+    addCart(id){
+    
+      this.axios.post('/carts',{
         productId:id,
         selected:true
-      }).then(()=>{
-
+      }).then((res)=>{
+        this.showModal=true; 
+        this.$store.dispatch('saveCartCount',res.cartTotalQuantity);
       }).catch(()=>{
         this.showModal=true;
-      })*/
+      });
     },
     goToCart(){
       this.$router.push('/cart');

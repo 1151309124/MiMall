@@ -53,6 +53,7 @@ export default {
   methods:{
     login(){
       let { username,password } = this;
+      console.log("4xi----this---------->",username,password);
      /*  if(!username || !password){
         this.$message.error('请输入正确的用户名和密码');
         return;
@@ -61,8 +62,10 @@ export default {
         username,
         password
       }).then((res)=>{
+        console.log("4xi-------------->",res);
         this.$cookie.set('userId',res.id,{expires:'1M'});
         // this.$store.dispatch('saveUserName',res.username);
+        
         this.saveUserName(res.username);
         this.$router.push('/index');
         /*   {
