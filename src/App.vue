@@ -1,31 +1,29 @@
 <!--
  * @Author: your name
- * @Date: 2021-10-27 23:05:45
- * @LastEditTime: 2021-11-18 22:29:26
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @Date: 2021-11-26 18:50:28
+ * @LastEditTime: 2021-11-26 18:50:50
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \htmle:\vue项目\mimall\src\App.vue
 -->
 <template>
   <div id="app">
-  <router-view></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import storage from './storage/index.js'
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-
+    
   },
-  data (){
+  data(){
     return {
-      res:{}
+      
     }
   },
-  mounted () {
-    // storage.setItem('a',1);
+  // storage.setItem('a',1);
     // storage.setItem('user',{a:1});
     //  storage.setItem('abc',{a:1},'user');
     //  storage.clear('a','user');
@@ -44,10 +42,11 @@ export default {
   // this.axios.get('/user/login').then((res)=>{
   //   this.res=res;
   // });
-
-
-  this.getUser();
-  this.getCartCount();
+  mounted(){
+    if(this.$cookie.get('userId')){
+      this.getUser();
+      this.getCartCount();
+    }
   },
   methods:{
     getUser(){
@@ -57,7 +56,7 @@ export default {
     },
     getCartCount(){
       this.axios.get('/carts/products/sum').then((res=0)=>{
-          this.$store.dispatch('saveCartCount',res);
+        this.$store.dispatch('saveCartCount',res);
       })
     }
   }
@@ -66,6 +65,6 @@ export default {
 
 <style lang="scss">
 @import './assets/scss/reset.scss';
+@import './assets/scss/config.scss';
 @import './assets/scss/button.scss';
-
 </style>

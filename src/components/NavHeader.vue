@@ -4,7 +4,7 @@
  * @Date: 2021-10-28 14:44:11
 <<<<<<< HEAD
 <<<<<<< HEAD
- * @LastEditTime: 2021-11-18 22:53:39
+ * @LastEditTime: 2021-11-26 18:11:00
 =======
  * @LastEditTime: 2021-11-05 22:05:38
 >>>>>>> Nav-Header-1
@@ -28,7 +28,8 @@
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{ username }}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
-          <a href="javascript:;" v-if="username">我的订单</a>
+          <a href="javascript:;" v-if="username" @click="logout">退出</a>
+          <a href="/#/order/list" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart"
             ><span class="icon-cart"></span>购物车{{cartCount}}</a
           >
@@ -163,14 +164,17 @@ export default {
   },
   mounted() {
     this.getProductList();
+    let params =this.$route.params;
+    if(params && params.from == 'login'){
+      this.getCartCount();
+    }
   },
   methods: {
     login() {
       this.$router.push("/login");
     },
     getProductList() {
-      this.axios
-        .get("/products", {
+      this.axios.get("/products", {
           params: {
             categoryId: "100012",
             pageSize:6
@@ -179,6 +183,19 @@ export default {
         .then((res) => {
             this.phoneList = res.list;
         });
+    },
+     getCartCount(){
+      this.axios.get('/carts/products/sum').then((res=0)=>{
+          this.$store.dispatch('saveCartCount',res);
+      })
+    },
+    logout(){
+      this.axios.post("/user/logout", ).then(() => {
+            this.$message.success('退出成功');
+            this.$cookie.set('userId','',{expires:'-1'}); 
+            this.$store.dispatch('saveUserName','');
+            this.$store.dispatch('saveCartCount','0');
+        })
     },
     goToCart() {
       this.$router.push("/cart");
@@ -327,13 +344,13 @@ sass-loader和node-sass要对应安装，反正现在是有了，上面是各个
           input {
             border: none;
             box-sizing: border-box;
-            border-right: 1px solid #e0e0e0;
+            border-right: 1px solid #E0E0E0;
             width: 264px;
             height: 50px;
             padding-left: 14px;
           }
           a {
-            @include bgImg(18px, 18px, "/imgs/icon-search.png");
+            @include bgImg(18px, 18px, '/imgs/icon-search.png');
             margin-left: 17px;
           }
         }

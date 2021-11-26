@@ -1,26 +1,18 @@
-<!--
- * @Author: your name
- * @Date: 2021-10-28 14:42:39
- * @LastEditTime: 2021-11-10 21:26:15
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \htmle:\vue项目\mimall\src\pages\home.vue
--->
 <template>
-    <div>
-        <nav-header></nav-header>
-        <router-view></router-view>
-        <nav-footer></nav-footer>
-    </div>
+  <div>
+    <nav-header></nav-header>
+    <router-view></router-view>
+    <nav-footer></nav-footer>
+  </div>
 </template>
 <script>
-import NavHeader from './../components/NavHeader.vue'
-import NavFooter from './../components/NavFooter.vue'
-export default {
+  import NavHeader from './../components/NavHeader'
+  import NavFooter from './../components/NavFooter'
+  export default{
     name:'nav-home',
     components:{
-        NavHeader,
-        NavFooter
+      NavHeader,
+      NavFooter
     }
-}
+  }
 </script>

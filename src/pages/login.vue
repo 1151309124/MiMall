@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, } from 'vuex';
 export default {
   name: 'login',
   data(){
@@ -53,41 +53,46 @@ export default {
   methods:{
     login(){
       let { username,password } = this;
-      console.log("4xi----this---------->",username,password);
-     /*  if(!username || !password){
+      // console.log("4xi----this---------->",username,password);
+      if(!username || !password){
         this.$message.error('请输入正确的用户名和密码');
         return;
-      } */
+      }
       this.axios.post('/user/login',{
         username,
         password
       }).then((res)=>{
-        console.log("4xi-------------->",res);
-        this.$cookie.set('userId',res.id,{expires:'1M'});
+        // console.log("4xi-------------->",res);
+        this.$cookie.set('userId',res.id,{expires:'Session'});
         // this.$store.dispatch('saveUserName',res.username);
-        
         this.saveUserName(res.username);
-        this.$router.push('/index');
-        /*   {
+        this.$router.push(/* {
+          path:'/index',
+          query:{
+            from:'login'
+          }
+        }); */
+
+          {
           name:'index',
           params:{
             from:'login'
           }
-        }); */
+        });
       })
     },
     ...mapActions(['saveUserName']),
     register(){
-      // this.$message.success('功能暂未开发');
-      // return;
-      this.axios.post('/user/register',{
+      this.$message.success('功能暂未开发');
+      return;
+      /* this.axios.post('/user/register',{
         username:'admin1',
         password:'admin1',
         email:'admin1@163.com'
       }).then(()=>{
-        // this.$message.success('注册成功');
+        this.$message.success('注册成功');
         alert('注册成功');
-      })
+      }) */
     }
   }
 }

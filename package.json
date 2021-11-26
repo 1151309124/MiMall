@@ -13,13 +13,16 @@
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "less-loader": "^6.0.0",
+    "qrcode": "^1.4.4",
     "style-loader": "^3.3.1",
     "swiper": "^5.4.5",
     "vue": "^2.6.11",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.5.3",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",

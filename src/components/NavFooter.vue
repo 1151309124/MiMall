@@ -2,7 +2,7 @@
  * @Author: your name
  * @Date: 2021-10-28 14:52:51
 <<<<<<< HEAD
- * @LastEditTime: 2021-11-04 14:38:19
+ * @LastEditTime: 2021-11-26 18:07:51
  * @LastEditTime: 2021-11-02 21:55:
 =======
 <<<<<<< HEAD
@@ -35,7 +35,7 @@
     </div>
     <div class="copyright">
       Copyright ©2019 <span class="domain">mi.future.com</span> All Rights
-      Reserved
+      Reserved.
     </div>
   </div>
 </template>
